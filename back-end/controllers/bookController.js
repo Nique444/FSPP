@@ -1,6 +1,7 @@
 const express = require("express");
 const books = express.Router();
-const { getAllBooks, getBook, createBook } = require("../queries/books.js");
+const { getAllBooks, getBook, createBook, deleteBook, updateBook } = require("../queries/books.js");
+const { checkTitle, checkAuthor, checkSeriesBoolean, checkFavBoolean } = require("../validations/checkBooks.js");
 
 //INDEX
 books.get("/", async (req, res) => {
@@ -24,19 +25,35 @@ books.get("/:id", async (req, res) => {
 });
 
 //CREATE
-books.post("/", async (req, res) => {
+books.post("/", checkTitle, checkAuthor, checkSeriesBoolean, checkFavBoolean, async (req, res) => {
   try {
     const book = await createBook(req.body);
     res.json(book);
   } catch (error) {
-    res.status(400).json({ error: "Cannot Add Book" });
+    res.status(400).json({ error: "Cannot Add Book." });
   }
 });
 
 //DELETE
-books.delete("/:id", (req, res) => {});
+books.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  const deletedBook = await deleteBook(id);
+  if (deletedBook.id) {
+    res.json(deletedBook);
+  } else {
+    res.status(404).json({ error: "Book Not Found." });
+  }
+});
 
 //UPDATE
-books.put("/:id", (req, res) => {});
+books.put("/:id", checkTitle, checkAuthor, checkSeriesBoolean, checkFavBoolean, async (req, res) => {
+  const { id } =req.params;
+  const updatedBook = await updateBook(req.body, id);
+  if (updatedBook.id) {
+    res.status(200).json(updatedBook);
+  } else {
+    res.status(404).json({ error: "Book Not Updated!"})
+  }
+});
 
 module.exports = books;

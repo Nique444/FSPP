@@ -38,4 +38,32 @@ const createBook = async (book) => {
   }
 };
 
-module.exports = { getAllBooks, getBook, createBook };
+const deleteBook = async (id) => {
+  try {
+    const deletedBook = await db.one(
+      "DELETE FROM books WHERE id = $1 RETURNING *",
+      id
+    );
+    return deletedBook;
+  } catch (error) {
+    return error;
+  }
+};
+
+const updateBook = async (book, id) => {
+  const { title, author, genre, date, is_series, is_favorite, image } = book;
+  try {
+    //first argument is the QUERY string//
+    //second argument is the actual DATA//
+    const updatedBook = await db.one(
+      "UPDATE book SET title = $1, author = $2, genre = $3, date = $4, is_series = $5, is_favorite = $6, image = $7 WHERE id = $8 RETURNING *",
+      //Order matters here. Below//
+      [title, author, genre, date, is_series, is_favorite, image, id]
+    );
+    return updatedBook;
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = { getAllBooks, getBook, createBook, deleteBook, updateBook };
