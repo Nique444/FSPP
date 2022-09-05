@@ -1,11 +1,11 @@
 import React from "react";
-import booksIndex from "../Components/booksIndex.js";
+import BooksIndex from "../Components/BooksIndex.js";
 
 function Index() {
   return (
     <div className="Index">
       <h2>THE BOOKCASE</h2>
-      <booksIndex />
+      <BooksIndex />
     </div>
   );
 }
