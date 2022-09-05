@@ -16,9 +16,9 @@ export default function BooksIndex() {
 
   return (
     <div className="Books">
-      {books.map((book) => {
+      {/* {books.map((book) => {
         return <Book key={book.id} book={book} />;
-      })}
+      })} */}
     </div>
   );
 }

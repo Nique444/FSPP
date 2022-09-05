@@ -1,10 +1,10 @@
-import bookEdit from "../Components/bookEdit";
+import BookEdit from "../Components/BookEdit";
 
 export default function Edit() {
   return (
     <div>
         <h2>Edit Book Description</h2>
-        <bookEdit />
+        <BookEdit />
     </div>
   )
 }
