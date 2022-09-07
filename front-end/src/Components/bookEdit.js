@@ -114,13 +114,15 @@ export default function BookEdit() {
               onChange={handleTextChange}
             />
           </Form.Group>
-          <Form.Select required>
-            <option value="" disabled selected hidden>
-              Please Choose
-            </option>
-            <option value={book.is_series}>Yes</option>
-            <option value={book.is_series}>No</option>
-          </Form.Select>
+          <Form.Group>
+            <Form.Select required>
+              <option value="" disabled selected hidden>
+                Please Choose
+              </option>
+              <option value={book.is_series}>Yes</option>
+              <option value={book.is_series}>No</option>
+            </Form.Select>
+          </Form.Group>
           <Button type="submit"> Submit </Button>
           <Link to={`/books/`}>
             <Button>Back</Button>

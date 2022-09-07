@@ -3,6 +3,11 @@
 background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
+
+.nav-button:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+
 .App {
   background-image: url("https://w0.peakpx.com/wallpaper/237/308/HD-wallpaper-books-and-butterfly-blue.jpg");
   min-height: 100%;

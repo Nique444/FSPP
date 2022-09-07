@@ -21,7 +21,7 @@ export default function NavBar() {
               className="me-2"
               aria-label="Search"
             />
-            <Button><img src="https://img.icons8.com/metro/26/000000/search.png"/></Button>
+            <Button variant="light" className='nav-button'><img className='nav-button-image'src="https://img.icons8.com/metro/26/000000/search.png"/></Button>
           </Form>
         </Container>
       </Navbar>
