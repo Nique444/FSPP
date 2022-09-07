@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -46,82 +47,86 @@ export default function BookEdit() {
   };
 
   return (
-    <>
-      <Form className="form" onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Label htmlFor="title">Title:</Form.Label>
-          <Form.Control
-            id="title"
-            value={book.title}
-            type="text"
-            onChange={handleTextChange}
-            placeholder="Book Title"
-            required
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="author">Author:</Form.Label>
-          <Form.Control
-            id="author"
-            value={book.author}
-            type="text"
-            onChange={handleTextChange}
-            placeholder="Author"
-            required
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="genre">Genre:</Form.Label>
-          <Form.Control
-            id="genre"
-            value={book.genre}
-            type="text"
-            onChange={handleTextChange}
-            placeholder="Book Genre"
-            required
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="date">Year Published:</Form.Label>
-          <Form.Control
-            id="date"
-            value={book.date}
-            type="text"
-            onChange={handleTextChange}
-            required
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label htmlFor="image">Image:</Form.Label>
-          <Form.Control
-            id="image"
-            type="url"
-            pattern="http[s]*://.+"
-            required
-            value={book.image}
-            placeholder="https://"
-            onChange={handleTextChange}
-          />
-        </Form.Group>
-        <Form.Group>
+    <div>
+      <Container>
+        <Form className="form" onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Label htmlFor="title">Title:</Form.Label>
+            <Form.Control
+              id="title"
+              value={book.title}
+              type="text"
+              onChange={handleTextChange}
+              placeholder="Book Title"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="author">Author:</Form.Label>
+            <Form.Control
+              id="author"
+              value={book.author}
+              type="text"
+              onChange={handleTextChange}
+              placeholder="Author"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="genre">Genre:</Form.Label>
+            <Form.Control
+              id="genre"
+              value={book.genre}
+              type="text"
+              onChange={handleTextChange}
+              placeholder="Book Genre"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="date">Year Published:</Form.Label>
+            <Form.Control
+              id="date"
+              value={book.date}
+              type="text"
+              onChange={handleTextChange}
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor="image">Image:</Form.Label>
+            <Form.Control
+              id="image"
+              type="url"
+              pattern="http[s]*://.+"
+              required
+              value={book.image}
+              placeholder="https://"
+              onChange={handleTextChange}
+            />
+          </Form.Group>
+          <Form.Group>
             <Form.Label htmlFor="summary">Summary:</Form.Label>
             <Form.Control
-            id="summary"
-            type="text"
-            value=""
-            onChange={handleTextChange}
+              id="summary"
+              type="text"
+              value=""
+              onChange={handleTextChange}
             />
-        </Form.Group>
-        <Form.Select required>
-            <option value="" disabled selected hidden>Please Choose</option>
+          </Form.Group>
+          <Form.Select required>
+            <option value="" disabled selected hidden>
+              Please Choose
+            </option>
             <option value={book.is_series}>Yes</option>
             <option value={book.is_series}>No</option>
-        </Form.Select>
-        <Button type="submit"> Submit </Button>
-        <Link to={`/books/`}>
-          <Button>Back</Button>
-        </Link>
-      </Form>
-    </>
+          </Form.Select>
+          <Button type="submit"> Submit </Button>
+          <Link to={`/books/`}>
+            <Button>Back</Button>
+          </Link>
+        </Form>
+      </Container>
+    </div>
   );
 }
