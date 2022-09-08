@@ -2,9 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Book from "./Book.js";
 
-export default function BooksIndex() {
-  const API = process.env.REACT_APP_API_URL;
+const API = process.env.REACT_APP_API_URL;
 
+export default function BooksIndex() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -16,9 +16,9 @@ export default function BooksIndex() {
 
   return (
     <div className="Books">
-      {/* {books.map((book) => {
+      {books.map((book) => {
         return <Book key={book.id} book={book} />;
-      })} */}
+      })}
     </div>
   );
 }

@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function NavBar() {
   return (
-    <Navbar className='nav-bar' bg="dark" variant="dark">
+    <Navbar className='nav-bar' bg="dark" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/">Home</Navbar.Brand>
           <Nav className="me-auto">
@@ -21,7 +21,7 @@ export default function NavBar() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="light" className='nav-button'><img className='nav-button-image'src="https://img.icons8.com/metro/26/000000/search.png"/></Button>
+            <Button variant="light" className='nav-button'><img className='nav-button-image'src="https://img.icons8.com/metro/26/000000/search.png" alt=''/></Button>
           </Form>
         </Container>
       </Navbar>

@@ -8,6 +8,27 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
+/* .books {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+}
+
+.book {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 5px;
+  text-align: center;
+  max-height: 500px;
+  max-width: 400px;
+}
+
+.resize {
+  width: auto;
+  height: 200px;
+} */
+
 .App {
   background-image: url("https://w0.peakpx.com/wallpaper/237/308/HD-wallpaper-books-and-butterfly-blue.jpg");
   min-height: 100%;
@@ -19,4 +40,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(
   position: fixed;
   top: 0;
   left: 0;
+}
+
+.form {
+  text-align: center;
 }
