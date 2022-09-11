@@ -14,12 +14,11 @@ export default function BookNew() {
         axios
         .post(`${API}/books`, newBook)
         .then(
-            () => {
+            (response) => {
                 navigate(`/books`);
-            },
-            (error) => console.error(error)
+            }
         )
-        .catch((c) => console.warn("catch", c));
+        .catch((error) => console.error(error));
     };
 
     const [book, setBook] = useState({
@@ -27,8 +26,8 @@ export default function BookNew() {
         author: "",
         genre: "",
         date: "",
-        is_series: false,
         image: "",
+        summary: "",
       });
 
       const handleTextChange = (event) => {
@@ -111,22 +110,10 @@ export default function BookNew() {
               rows={3}
               id="summary"
               type="text"
-              value=""
+              value={book.summary}
               onChange={handleTextChange}
             />
           </Form.Group>
-
-          <br />
-
-          <Form.Select required>
-            <option value="" disabled selected hidden>
-              Please Choose
-            </option>
-            <option value={book.is_series}>Yes</option>
-            <option value={book.is_series}>No</option>
-          </Form.Select>
-
-          <br />
 
           <Button className="newpage-buttons" type="submit"> Submit </Button>
           <Link to={`/books/`}>

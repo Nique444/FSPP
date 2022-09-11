@@ -37,7 +37,7 @@ export default function BookDetails() {
         <h3>Genre: {book.genre}</h3>
         <h3>Published: {book.date}</h3>
         {/* <h3>Series Novel: {book.is_series}</h3> */}
-        {/* <h4>Summary: </h4> */}
+        <h4>Summary: {book.summary}</h4>
           <Link to={`/books/`}>
             <Button className="editpage-buttons">Back</Button>
           </Link>

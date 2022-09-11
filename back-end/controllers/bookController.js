@@ -1,7 +1,7 @@
 const express = require("express");
 const books = express.Router();
 const { getAllBooks, getBook, createBook, deleteBook, updateBook } = require("../queries/books.js");
-const { checkTitle, checkAuthor, checkSeriesBoolean, checkFavBoolean } = require("../validations/checkBooks.js");
+const { checkTitle, checkAuthor } = require("../validations/checkBooks.js");
 
 //INDEX
 books.get("/", async (req, res) => {
@@ -25,7 +25,7 @@ books.get("/:id", async (req, res) => {
 });
 
 //CREATE
-books.post("/", checkTitle, checkAuthor, checkSeriesBoolean, checkFavBoolean, async (req, res) => {
+books.post("/", checkTitle, checkAuthor, async (req, res) => {
   try {
     const book = await createBook(req.body);
     res.json(book);
@@ -46,10 +46,10 @@ books.delete("/:id", async (req, res) => {
 });
 
 //UPDATE
-books.put("/:id", checkTitle, checkAuthor, checkSeriesBoolean, checkFavBoolean, async (req, res) => {
+books.put("/:id", checkTitle, checkAuthor, async (req, res) => {
   const { id } =req.params;
   const updatedBook = await updateBook(req.body, id);
-  if (updatedBook.id) {
+  if (req.body) {
     res.status(200).json(updatedBook);
   } else {
     res.status(404).json({ error: "Book Not Updated!"})

@@ -17,6 +17,7 @@ export default function BookEdit() {
     genre: "",
     date: "",
     image: "",
+    summary: "",
   });
 
   useEffect(() => {
@@ -26,10 +27,14 @@ export default function BookEdit() {
     );
   }, [id, navigate]);
 
-  const updateBook = () => {
-    axios.put(`${API}/books/${id}`, book).then(
-      (res) => {
-        setBook(res.data);
+  const updateBook = (book) => {
+    axios.put(`${API}/books/${id}`, book)
+    .then(
+      () => {
+        // console.log('trying to work')
+        // setBook(res.data);
+        // console.log('edit page')
+        // console.log('edit res', res.data)
         navigate(`/books`);
       },
       (error) => console.error(error)
@@ -42,7 +47,7 @@ export default function BookEdit() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateBook();
+    updateBook(book);
   };
 
   return (
@@ -115,6 +120,7 @@ export default function BookEdit() {
               as="textarea"
               rows={3}
               id="summary"
+              value={book.summary}
               onChange={handleTextChange}
             />
           </Form.Group>

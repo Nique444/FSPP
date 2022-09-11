@@ -14,30 +14,5 @@ const checkTitle = (req, res, next) => {
     }
   };
 
-  const checkSeriesBoolean = (req, res, next) => {
-    const { is_series } = req.body;
-    if (
-        is_series === "true" ||
-        is_series === "false" ||
-        is_series === undefined
-    ) {
-      next();
-    } else {
-      res.status(400).json({ error: "is_series must be a boolean value" });
-    }
-  };
-  
-  const checkFavBoolean = (req, res, next) => {
-    const { is_favorite } = req.body;
-    if (
-      is_favorite === "true" ||
-      is_favorite === "false" ||
-      is_favorite === undefined
-    ) {
-      next();
-    } else {
-      res.status(400).json({ error: "is_favorite must be a boolean value" });
-    }
-  };
 
-  module.exports = { checkTitle, checkAuthor, checkSeriesBoolean, checkFavBoolean };
+  module.exports = { checkTitle, checkAuthor };

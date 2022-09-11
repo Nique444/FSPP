@@ -21,15 +21,14 @@ const getBook = async (id) => {
 const createBook = async (book) => {
   try {
     const newBook = await db.one(
-      "INSERT INTO books (title, author, genre, date, is_series, is_favorite, image) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      "INSERT INTO books (title, author, genre, date, image, summary) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
       [
         book.title,
         book.author,
         book.genre,
         book.date,
-        book.is_series,
-        book.is_favorite,
         book.image,
+        book.summary,
       ]
     );
     return newBook;
@@ -51,14 +50,14 @@ const deleteBook = async (id) => {
 };
 
 const updateBook = async (book, id) => {
-  const { title, author, genre, date, is_series, is_favorite, image } = book;
+  const { title, author, genre, date, image, summary } = book;
   try {
     //first argument is the QUERY string//
     //second argument is the actual DATA//
     const updatedBook = await db.one(
-      "UPDATE book SET title = $1, author = $2, genre = $3, date = $4, is_series = $5, is_favorite = $6, image = $7 WHERE id = $8 RETURNING *",
+      "UPDATE books SET title = $1, author = $2, genre = $3, date = $4, image = $5, summary = $6 WHERE id = $7 RETURNING *",
       //Order matters here. Below//
-      [title, author, genre, date, is_series, is_favorite, image, id]
+      [title, author, genre, date, image, summary, id]
     );
     return updatedBook;
   } catch (error) {

@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 export default function NavBar() {
   return (
-    <Navbar className='nav-bar' expand="lg" fixed='top'>
+    <Navbar className='nav-bar' expand="lg">
         <Container>
           <Navbar.Brand className='nav-text' href="/">Home</Navbar.Brand>
           <Nav className="me-auto">

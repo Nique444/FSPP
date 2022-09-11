@@ -1,5 +1,6 @@
 .nav-bar {
-background-color: #2F8F9D;
+  background: rgb(34,193,195);
+  background: radial-gradient(circle, rgba(34,193,195,1) 0%, rgba(80,184,28,1) 100%);
 }
 
 .nav-button:hover {

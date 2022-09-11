@@ -9,7 +9,6 @@ CREATE TABLE books (
     author TEXT NOT NULL,
     genre TEXT,
     date TEXT,
-    is_series BOOLEAN,
-    is_favorite BOOLEAN,
-    image TEXT
+    image TEXT,
+    summary TEXT
 );
