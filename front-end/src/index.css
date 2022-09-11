@@ -106,3 +106,18 @@
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+
+h2 {
+  text-align: center;
+}
+
+.home-page {
+  padding-top: 15%;
+  padding-bottom: 65%;
+  font-size: 60px;
+}
+
+.home {
+  background-image: url('https://www.rd.com/wp-content/uploads/2019/11/heart-book-e1574702487427-scaled.jpg');
+  background-size: cover;
+}

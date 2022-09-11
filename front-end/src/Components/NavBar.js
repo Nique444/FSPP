@@ -11,7 +11,7 @@ export default function NavBar() {
         <Container>
           <Navbar.Brand className='nav-text' href="/">Home</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link className='nav-text' href="/books">Book Lovers</Nav.Link>
+            <Nav.Link className='nav-text' href="/books">Books &#128420;</Nav.Link>
             <Nav.Link className='nav-text' href="/books/new">Add Your Fav Book</Nav.Link>
           </Nav>
           <Form className="d-flex">
