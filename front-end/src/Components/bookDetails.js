@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 
 export default function BookDetails() {
@@ -30,26 +31,21 @@ export default function BookDetails() {
 
   return (
     <>
-    <article>
+    <article className="details">
       <img src={book.image} alt="pic"/> 
       <div className="showNavigation">
         <h3>Genre: {book.genre}</h3>
         <h3>Published: {book.date}</h3>
         {/* <h3>Series Novel: {book.is_series}</h3> */}
-        <h4>Summary: </h4>
-        <div>
-          {" "}
-          <Link to={`/books`}>
-            <button>Back</button>
+        {/* <h4>Summary: </h4> */}
+          <Link to={`/books/`}>
+            <Button className="editpage-buttons">Back</Button>
           </Link>
-        </div>
-        <div>
           <Link to={`/books/${id}/edit`}>
-            <button>Edit</button>
+            <Button className="details-button">Edit</Button>
           </Link>
-        </div>
         <div>
-          <button onClick={handleDelete}>Delete</button>
+          <Button className="details-button" onClick={handleDelete}>Delete</Button>
         </div>
       </div>
     </article>

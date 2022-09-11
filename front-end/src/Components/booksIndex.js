@@ -15,7 +15,7 @@ export default function BooksIndex() {
   }, []);
 
   return (
-    <div className="Books">
+    <div className="books">
       {books.map((book) => {
         return <Book key={book.id} book={book} />;
       })}

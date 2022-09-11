@@ -16,7 +16,6 @@ export default function BookEdit() {
     author: "",
     genre: "",
     date: "",
-    is_series: false,
     image: "",
   });
 
@@ -47,7 +46,7 @@ export default function BookEdit() {
   };
 
   return (
-    <div>
+    <div className="edit">
       <Container>
         <Form className="form" onSubmit={handleSubmit}>
           <Form.Group>
@@ -61,6 +60,7 @@ export default function BookEdit() {
               required
             />
           </Form.Group>
+          
           <Form.Group>
             <Form.Label htmlFor="author">Author:</Form.Label>
             <Form.Control
@@ -72,6 +72,7 @@ export default function BookEdit() {
               required
             />
           </Form.Group>
+
           <Form.Group>
             <Form.Label htmlFor="genre">Genre:</Form.Label>
             <Form.Control
@@ -83,6 +84,7 @@ export default function BookEdit() {
               required
             />
           </Form.Group>
+
           <Form.Group>
             <Form.Label htmlFor="date">Year Published:</Form.Label>
             <Form.Control
@@ -93,6 +95,7 @@ export default function BookEdit() {
               required
             />
           </Form.Group>
+
           <Form.Group>
             <Form.Label htmlFor="image">Image:</Form.Label>
             <Form.Control
@@ -105,27 +108,32 @@ export default function BookEdit() {
               onChange={handleTextChange}
             />
           </Form.Group>
+
           <Form.Group>
             <Form.Label htmlFor="summary">Summary:</Form.Label>
             <Form.Control
+              as="textarea"
+              rows={3}
               id="summary"
-              type="text"
-              value=""
               onChange={handleTextChange}
             />
           </Form.Group>
-          <Form.Group>
-            <Form.Select required>
-              <option value="" disabled selected hidden>
-                Please Choose
-              </option>
-              <option value={book.is_series}>Yes</option>
-              <option value={book.is_series}>No</option>
-            </Form.Select>
-          </Form.Group>
-          <Button type="submit"> Submit </Button>
+
+          <br />
+
+          {/* <Form.Select required>
+            <option value="" disabled selected hidden>
+              Please Choose
+            </option>
+            <option value={book.is_series}>Yes</option>
+            <option value={book.is_series}>No</option>
+          </Form.Select> */}
+
+          <br />
+
+          <Button className="editpage-buttons" type="submit"> Submit </Button>
           <Link to={`/books/`}>
-            <Button>Back</Button>
+            <Button className="editpage-buttons">Back</Button>
           </Link>
         </Form>
       </Container>

@@ -7,12 +7,12 @@ import Button from 'react-bootstrap/Button';
 
 export default function NavBar() {
   return (
-    <Navbar className='nav-bar' bg="dark" variant="dark" expand="lg">
+    <Navbar className='nav-bar' expand="lg" fixed='top'>
         <Container>
-          <Navbar.Brand href="/">Home</Navbar.Brand>
+          <Navbar.Brand className='nav-text' href="/">Home</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/books">Book Lovers</Nav.Link>
-            <Nav.Link href="/books/new">Add Your Fav Book</Nav.Link>
+            <Nav.Link className='nav-text' href="/books">Book Lovers</Nav.Link>
+            <Nav.Link className='nav-text' href="/books/new">Add Your Fav Book</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
