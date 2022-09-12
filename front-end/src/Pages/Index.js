@@ -1,5 +1,5 @@
 import React from "react";
-import BooksIndex from "../Components/BooksIndex.js";
+import BooksIndex from "../Components/BooksIndex";
 
 function Index() {
   return (
