@@ -1,4 +1,4 @@
-import BooksIndex from "../Components/BooksIndex.js";
+import BooksIndex from "../Components/BooksIndex";
 
 export default function Index() {
   return (
